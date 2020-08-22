@@ -18,3 +18,24 @@ def register():
         return redirect('/user/login')
     else:
         return render_template('register.html')
+
+@user_bp.route('/login', methods=('post', 'get'))
+def login():
+    if request.method == 'post':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        try:
+            user = User.query.filter_by(username=username).one()
+        except Exception:
+            db.session.rollback()
+            return '用户名错误'
+
+        if password and user.password == password:
+            session['uid'] = user.id
+            session['username'] = user.username
+            return  redirect('/user/info')
+        else:
+            return '密码错误'
+    else:
+        return render_template('login.html')
