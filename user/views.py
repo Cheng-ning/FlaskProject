@@ -5,7 +5,7 @@ from user.models import User
 user_bp = Blueprint('user', __name__, url_prefix='/user')
 user_bp.template_folder = './templates'
 
-@user_bp.route('/register', method=('post', 'get'))
+@user_bp.route('/register', methods=('post', 'get'))
 def register():
     if request.method == 'post':
         username = request.form.get('username')
