@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding = UTF-8
+#coding=UTF-8
 
 from flask import Flask
 from flask import redirect
@@ -12,7 +12,7 @@ from article.views import article_bp
 
 app = Flask(__name__)
 app.secret_key = r'(*&^TRF@QSR^&*Ijhu*()OKJU*(87ytGHU7654rE43Wr5$#Er56&*())(*Ikl;[}+_)'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost:3306/blog'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root：123456@106.53.229.53:3306/blog'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db.init_app(app)
 
