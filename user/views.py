@@ -39,3 +39,9 @@ def login():
             return '密码错误'
     else:
         return render_template('login.html')
+
+@user_bp.route('/info')
+def info():
+    uid = session['uid']
+    user = User.query.get(uid)
+    return render_template('info.html', user=user)
