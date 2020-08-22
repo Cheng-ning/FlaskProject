@@ -11,6 +11,7 @@ def register():
         username = request.form.get('username')
         password = request.form.get('password')
         city = request.form.get('city')
+        print(123)
 
         user = User(username=username, password=password, city=city)
         db.session.add(user)
@@ -34,7 +35,7 @@ def login():
         if password and user.password == password:
             session['uid'] = user.id
             session['username'] = user.username
-            return  redirect('/user/info')
+            return redirect('/user/info')
         else:
             return '密码错误'
     else:
